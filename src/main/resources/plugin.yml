@@ -1,0 +1,5 @@
+name: KaniniAPI
+main: cn.asougi.kaniniAPI.App
+version: 1.0
+depend: [ProtocolLib]
+author: asougi85

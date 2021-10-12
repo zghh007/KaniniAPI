@@ -1,0 +1,499 @@
+Index: src/main/java/cn/asougi/guild/gui/SampleGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cn.asougi.guild.gui;\r\n\r\nimport cn.asougi.guild.api.ItemFacAPI;\r\nimport org.bukkit.Material;\r\nimport org.bukkit.entity.Player;\r\nimport org.bukkit.inventory.ItemStack;\r\n\r\npublic class SampleGUI extends InventoryGUI{\r\n\r\n\r\n\r\n    public SampleGUI(Player player) {//为指定玩家创建箱子页面\r\n\r\n        super(\"样板GUI页面\", player, 4);//row:行数为4\r\n\r\n//        创建一个ItemStack\r\n        ItemStack item1 = ItemFacAPI.getItemStack(Material.APPLE,\"一个苹果按钮\",\"§r点击后可以触发一个按钮事件\",\"触发后会判断玩家点击的左右键\");\r\n\r\n        Button button1 = new Button(item1,type -> {\r\n            if(type.isShiftClick()){\r\n                player.sendMessage(\"你按下了SHIFT\");\r\n            }\r\n            if(type.isLeftClick()){\r\n                player.sendMessage(\"你使用了左键\");\r\n            }\r\n            if(type.isRightClick()){\r\n                player.sendMessage(\"你使用了右键\");\r\n            }\r\n        });\r\n\r\n//        在第一格的位置显示苹果按钮\r\n        this.setButton(0, button1);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/SampleGUI.java b/src/main/java/cn/asougi/guild/gui/SampleGUI.java
+--- a/src/main/java/cn/asougi/guild/gui/SampleGUI.java	
++++ b/src/main/java/cn/asougi/guild/gui/SampleGUI.java	
+@@ -1,9 +1,11 @@
+ package cn.asougi.guild.gui;
+ 
+ import cn.asougi.guild.api.ItemFacAPI;
++import org.bukkit.Bukkit;
+ import org.bukkit.Material;
+ import org.bukkit.entity.Player;
+ import org.bukkit.inventory.ItemStack;
++import org.bukkit.material.Skull;
+ 
+ public class SampleGUI extends InventoryGUI{
+ 
+@@ -11,24 +13,44 @@
+ 
+     public SampleGUI(Player player) {//为指定玩家创建箱子页面
+ 
+-        super("样板GUI页面", player, 4);//row:行数为4
++        super("§0Kim 主页面 §7(%page%)", player, 6);//row:行数为4
+ 
+ //        创建一个ItemStack
+-        ItemStack item1 = ItemFacAPI.getItemStack(Material.APPLE,"一个苹果按钮","§r点击后可以触发一个按钮事件","触发后会判断玩家点击的左右键");
++        ItemStack PreviousPage  = ItemFacAPI.getItemStack(Material.APPLE,"§c上一页","");
++        ItemStack NextPage  = ItemFacAPI.getItemStack(Material.APPLE,"§c下一页","");
++        ItemStack Interval = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15);
++
++        ItemStack CreateGuild  = ItemFacAPI.getItemStack(Material.APPLE,"§c创建公会","");
++        ItemStack AdminGuild  = ItemFacAPI.getItemStack(Material.APPLE,"§c管理公会","");
++
++        ItemStack GuildInfo  = null;
++        GuildInfo = ItemFacAPI.getItemStack(Material.APPLE,"§c公会信息","§7信息");
++        GuildInfo = ItemFacAPI.getItemStack(Material.APPLE,"§c公会信息","§7您还没有 创建/加入 公会.");
++
+ 
+-        Button button1 = new Button(item1,type -> {
+-            if(type.isShiftClick()){
+-                player.sendMessage("你按下了SHIFT");
+-            }
+-            if(type.isLeftClick()){
+-                player.sendMessage("你使用了左键");
+-            }
+-            if(type.isRightClick()){
+-                player.sendMessage("你使用了右键");
+-            }
+-        });
++        this.setButton(36, new Button(Interval));
++        this.setButton(37, new Button(Interval));
++        this.setButton(38, new Button(Interval));
++        this.setButton(39, new Button(Interval));
++        this.setButton(40, new Button(Interval));
++        this.setButton(41, new Button(Interval));
++        this.setButton(42, new Button(Interval));
++        this.setButton(43, new Button(Interval));
++        this.setButton(44, new Button(Interval));
+ 
+-//        在第一格的位置显示苹果按钮
+-        this.setButton(0, button1);
++        this.setButton(48, new Button(PreviousPage));
++        this.setButton(50, new Button(NextPage));
++
++//        Button button1 = new Button(PreviousPage,type -> {
++//            if(type.isShiftClick()){
++//                player.sendMessage("你按下了SHIFT");
++//            }
++//            if(type.isLeftClick()){
++//                player.sendMessage("你使用了左键");
++//            }
++//            if(type.isRightClick()){
++//                player.sendMessage("你使用了右键");
++//            }
++//        });
+     }
+ }
+Index: target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>F:\\projects\\KimGuild\\src\\test\\java\\cn\\asougi\\charge\\AppTest.java\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+--- a/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst	
++++ b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst	
+@@ -1,1 +1,1 @@
+-F:\projects\KimGuild\src\test\java\cn\asougi\charge\AppTest.java
++D:\Java\KimGuild\src\test\java\cn\asougi\charge\AppTest.java
+Index: target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>cn\\asougi\\guild\\api\\SkullAPI.class\r\ncn\\asougi\\guild\\gui\\listener\\ButtonClickListener.class\r\ncn\\asougi\\guild\\gui\\SampleGUI.class\r\ncn\\asougi\\guild\\App.class\r\ncn\\asougi\\guild\\api\\ItemFacAPI.class\r\ncn\\asougi\\guild\\gui\\InventoryGUI.class\r\ncn\\asougi\\guild\\api\\SqlAPI.class\r\ncn\\asougi\\guild\\gui\\Button.class\r\ncn\\asougi\\guild\\gui\\ButtonClick.class\r\ncn\\asougi\\guild\\command\\GuildCommand.class\r\ncn\\asougi\\guild\\api\\TitleAPI.class\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+--- a/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	
+@@ -1,11 +1,17 @@
+ cn\asougi\guild\api\SkullAPI.class
+-cn\asougi\guild\gui\listener\ButtonClickListener.class
+ cn\asougi\guild\gui\SampleGUI.class
+ cn\asougi\guild\App.class
+ cn\asougi\guild\api\ItemFacAPI.class
++cn\asougi\guild\gui\menu\guildPlayerAdminGui.class
++cn\asougi\guild\gui\menu\guildInfoGui.class
++cn\asougi\guild\gui\Button.class
++cn\asougi\guild\gui\menu\adminGUI.class
++cn\asougi\guild\gui\menu\confirmGui.class
++cn\asougi\guild\api\TitleAPI.class
++cn\asougi\guild\gui\listener\ButtonClickListener.class
++cn\asougi\guild\gui\menu\guildCreateGui.class
++cn\asougi\guild\gui\menu\mainGui.class
+ cn\asougi\guild\gui\InventoryGUI.class
+ cn\asougi\guild\api\SqlAPI.class
+-cn\asougi\guild\gui\Button.class
+ cn\asougi\guild\gui\ButtonClick.class
+ cn\asougi\guild\command\GuildCommand.class
+-cn\asougi\guild\api\TitleAPI.class
+Index: target/maven-archiver/pom.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Generated by Maven\r\n#Sat Sep 11 19:07:09 CST 2021\r\nversion=1.0-SNAPSHOT\r\ngroupId=Pokemon\r\nartifactId=KimGuild\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/maven-archiver/pom.properties b/target/maven-archiver/pom.properties
+--- a/target/maven-archiver/pom.properties	
++++ b/target/maven-archiver/pom.properties	
+@@ -1,5 +1,5 @@
+ #Generated by Maven
+-#Sat Sep 11 19:07:09 CST 2021
++#Sun Sep 12 10:56:51 CST 2021
+ version=1.0-SNAPSHOT
+ groupId=Pokemon
+ artifactId=KimGuild
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\">\r\n    <file url=\"file://$PROJECT_DIR$\" charset=\"UTF-8\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+--- a/.idea/encodings.xml	
++++ b/.idea/encodings.xml	
+@@ -2,5 +2,7 @@
+ <project version="4">
+   <component name="Encoding">
+     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>F:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\api\\ItemFacAPI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\api\\TitleAPI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\gui\\Button.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\App.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\gui\\listener\\ButtonClickListener.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\gui\\ButtonClick.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\api\\SqlAPI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\gui\\InventoryGUI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\api\\SkullAPI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\gui\\SampleGUI.java\r\nF:\\projects\\KimGuild\\src\\main\\java\\cn\\asougi\\guild\\command\\GuildCommand.java\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+--- a/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	
+@@ -1,11 +1,17 @@
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\api\ItemFacAPI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\api\TitleAPI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\gui\Button.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\App.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\gui\listener\ButtonClickListener.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\gui\ButtonClick.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\api\SqlAPI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\gui\InventoryGUI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\api\SkullAPI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\gui\SampleGUI.java
+-F:\projects\KimGuild\src\main\java\cn\asougi\guild\command\GuildCommand.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\guildInfoGui.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\Button.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\listener\ButtonClickListener.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\InventoryGUI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\guildPlayerAdminGui.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\guildCreateGui.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\mainGui.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\api\TitleAPI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\ButtonClick.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\SampleGUI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\api\ItemFacAPI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\confirmGui.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\command\GuildCommand.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\App.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\gui\menu\adminGUI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\api\SqlAPI.java
++D:\Java\KimGuild\src\main\java\cn\asougi\guild\api\SkullAPI.java
+Index: src/main/java/cn/asougi/guild/gui/menu/guildInfoGui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/guildInfoGui.java b/src/main/java/cn/asougi/guild/gui/menu/guildInfoGui.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/guildInfoGui.java	
+@@ -0,0 +1,4 @@
++package cn.asougi.guild.gui.menu;
++
++public class guildInfoGui {
++}
+Index: src/main/resources/mysql.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/mysql.yml b/src/main/resources/mysql.yml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/mysql.yml	
+@@ -0,0 +1,5 @@
++address: localhost
++port: '3306'
++database: inkdata
++account: root
++password: root
+Index: src/main/java/cn/asougi/guild/gui/menu/guildPlayerAdminGui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/guildPlayerAdminGui.java b/src/main/java/cn/asougi/guild/gui/menu/guildPlayerAdminGui.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/guildPlayerAdminGui.java	
+@@ -0,0 +1,4 @@
++package cn.asougi.guild.gui.menu;
++
++public class guildPlayerAdminGui {
++}
+Index: target/surefire-reports/cn.asougi.charge.AppTest.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>-------------------------------------------------------------------------------\r\nTest set: cn.asougi.charge.AppTest\r\n-------------------------------------------------------------------------------\r\nTests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/surefire-reports/cn.asougi.charge.AppTest.txt b/target/surefire-reports/cn.asougi.charge.AppTest.txt
+--- a/target/surefire-reports/cn.asougi.charge.AppTest.txt	
++++ b/target/surefire-reports/cn.asougi.charge.AppTest.txt	
+@@ -1,4 +1,4 @@
+ -------------------------------------------------------------------------------
+ Test set: cn.asougi.charge.AppTest
+ -------------------------------------------------------------------------------
+-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
++Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Index: src/main/java/cn/asougi/guild/gui/menu/confirmGui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/confirmGui.java b/src/main/java/cn/asougi/guild/gui/menu/confirmGui.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/confirmGui.java	
+@@ -0,0 +1,4 @@
++package cn.asougi.guild.gui.menu;
++
++public class confirmGui {
++}
+Index: src/main/java/cn/asougi/guild/gui/menu/adminGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/adminGUI.java b/src/main/java/cn/asougi/guild/gui/menu/adminGUI.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/adminGUI.java	
+@@ -0,0 +1,4 @@
++package cn.asougi.guild.gui.menu;
++
++public class adminGUI {
++}
+Index: target/surefire-reports/TEST-cn.asougi.charge.AppTest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n<testsuite tests=\"1\" failures=\"0\" name=\"cn.asougi.charge.AppTest\" time=\"0.003\" errors=\"0\" skipped=\"0\">\r\n  <properties>\r\n    <property name=\"java.runtime.name\" value=\"Java(TM) SE Runtime Environment\"/>\r\n    <property name=\"sun.boot.library.path\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\bin\"/>\r\n    <property name=\"java.vm.version\" value=\"25.131-b11\"/>\r\n    <property name=\"java.vm.vendor\" value=\"Oracle Corporation\"/>\r\n    <property name=\"maven.multiModuleProjectDirectory\" value=\"F:\\projects\\KimGuild\"/>\r\n    <property name=\"java.vendor.url\" value=\"http://java.oracle.com/\"/>\r\n    <property name=\"path.separator\" value=\";\"/>\r\n    <property name=\"guice.disable.misplaced.annotation.check\" value=\"true\"/>\r\n    <property name=\"java.vm.name\" value=\"Java HotSpot(TM) 64-Bit Server VM\"/>\r\n    <property name=\"file.encoding.pkg\" value=\"sun.io\"/>\r\n    <property name=\"user.script\" value=\"\"/>\r\n    <property name=\"user.country\" value=\"CN\"/>\r\n    <property name=\"sun.java.launcher\" value=\"SUN_STANDARD\"/>\r\n    <property name=\"sun.os.patch.level\" value=\"\"/>\r\n    <property name=\"java.vm.specification.name\" value=\"Java Virtual Machine Specification\"/>\r\n    <property name=\"user.dir\" value=\"F:\\projects\\KimGuild\"/>\r\n    <property name=\"java.runtime.version\" value=\"1.8.0_131-b11\"/>\r\n    <property name=\"java.awt.graphicsenv\" value=\"sun.awt.Win32GraphicsEnvironment\"/>\r\n    <property name=\"java.endorsed.dirs\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\endorsed\"/>\r\n    <property name=\"os.arch\" value=\"amd64\"/>\r\n    <property name=\"java.io.tmpdir\" value=\"C:\\Users\\asougi85\\AppData\\Local\\Temp\\\"/>\r\n    <property name=\"line.separator\" value=\"\r\n\"/>\r\n    <property name=\"java.vm.specification.vendor\" value=\"Oracle Corporation\"/>\r\n    <property name=\"user.variant\" value=\"\"/>\r\n    <property name=\"os.name\" value=\"Windows 10\"/>\r\n    <property name=\"classworlds.conf\" value=\"F:\\maven\\apache-maven-3.6.3\\bin\\..\\bin\\m2.conf\"/>\r\n    <property name=\"sun.jnu.encoding\" value=\"GBK\"/>\r\n    <property name=\"java.library.path\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files\\VanDyke Software\\Clients\\;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Java\\jre1.8.0_281;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin;C:\\Program Files\\Razer\\ChromaBroadcast\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;F:\\maven\\apache-maven-3.6.3\\bin;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files (x86)\\Common Files\\Thunder Network\\KanKan\\Codecs;F:\\maven\\apache-maven-3.6.3\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;F:\\Users\\Asougi85\\Desktop\\tools\\xmanager7pjb_jb51\\Xmanager 7\\;F:\\Users\\Asougi85\\Desktop\\tools\\xmanager7pjb_jb51\\Xshell 7\\;F:\\Users\\Asougi85\\Desktop\\tools\\xmanager7pjb_jb51\\Xftp 7\\;F:\\Users\\Asougi85\\Desktop\\tools\\xmanager7pjb_jb51\\Xlpd 7\\;F:\\Program Files (x86)\\CADSeePlus;C:\\Program Files\\Git\\cmd;C:\\Users\\asougi85\\AppData\\Local\\Programs\\Python\\Python39\\Scripts;C:\\Users\\asougi85\\AppData\\Local\\Programs\\Python\\Python39;E:\\Program Files (x86)\\GNU Tools ARM Embedded\\6 2017-q1-update\\bin;C:\\Program Files\\Bandizip\\;C:\\Gradle\\gradle-5.6.2\\bin;F:\\Users\\asougi85\\AppData\\Local\\Programs\\Fiddler;C:\\Users\\asougi85\\AppData\\Roaming\\npm;F:\\Users\\Asougi85\\Desktop\\tools\\adb-platform-tools;C:\\Program Files\\Java\\jdk-16.0.2\\bin;F:\\Users\\asougi85\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\asougi85\\AppData\\Local\\GitHubDesktop\\bin;.\"/>\r\n    <property name=\"maven.conf\" value=\"F:\\maven\\apache-maven-3.6.3\\bin\\../conf\"/>\r\n    <property name=\"java.specification.name\" value=\"Java Platform API Specification\"/>\r\n    <property name=\"java.class.version\" value=\"52.0\"/>\r\n    <property name=\"sun.management.compiler\" value=\"HotSpot 64-Bit Tiered Compilers\"/>\r\n    <property name=\"os.version\" value=\"10.0\"/>\r\n    <property name=\"library.jansi.path\" value=\"F:\\maven\\apache-maven-3.6.3\\bin\\..\\lib\\jansi-native\"/>\r\n    <property name=\"user.home\" value=\"C:\\Users\\asougi85\"/>\r\n    <property name=\"user.timezone\" value=\"Asia/Shanghai\"/>\r\n    <property name=\"java.awt.printerjob\" value=\"sun.awt.windows.WPrinterJob\"/>\r\n    <property name=\"java.specification.version\" value=\"1.8\"/>\r\n    <property name=\"file.encoding\" value=\"GBK\"/>\r\n    <property name=\"user.name\" value=\"asougi85\"/>\r\n    <property name=\"java.class.path\" value=\"F:\\maven\\apache-maven-3.6.3\\bin\\..\\boot\\plexus-classworlds-2.6.0.jar\"/>\r\n    <property name=\"java.vm.specification.version\" value=\"1.8\"/>\r\n    <property name=\"sun.arch.data.model\" value=\"64\"/>\r\n    <property name=\"java.home\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\jre\"/>\r\n    <property name=\"sun.java.command\" value=\"org.codehaus.plexus.classworlds.launcher.Launcher clean package\"/>\r\n    <property name=\"java.specification.vendor\" value=\"Oracle Corporation\"/>\r\n    <property name=\"user.language\" value=\"zh\"/>\r\n    <property name=\"awt.toolkit\" value=\"sun.awt.windows.WToolkit\"/>\r\n    <property name=\"java.vm.info\" value=\"mixed mode\"/>\r\n    <property name=\"java.version\" value=\"1.8.0_131\"/>\r\n    <property name=\"java.ext.dirs\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext\"/>\r\n    <property name=\"sun.boot.class.path\" value=\"C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\resources.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\rt.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\jsse.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\jce.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\charsets.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\lib\\jfr.jar;C:\\Program Files\\Java\\jdk1.8.0_131\\jre\\classes\"/>\r\n    <property name=\"sun.stderr.encoding\" value=\"ms936\"/>\r\n    <property name=\"java.vendor\" value=\"Oracle Corporation\"/>\r\n    <property name=\"maven.home\" value=\"F:\\maven\\apache-maven-3.6.3\\bin\\..\"/>\r\n    <property name=\"file.separator\" value=\"\\\"/>\r\n    <property name=\"java.vendor.url.bug\" value=\"http://bugreport.sun.com/bugreport/\"/>\r\n    <property name=\"sun.cpu.endian\" value=\"little\"/>\r\n    <property name=\"sun.io.unicode.encoding\" value=\"UnicodeLittle\"/>\r\n    <property name=\"sun.stdout.encoding\" value=\"ms936\"/>\r\n    <property name=\"sun.desktop\" value=\"windows\"/>\r\n    <property name=\"sun.cpu.isalist\" value=\"amd64\"/>\r\n  </properties>\r\n  <testcase classname=\"cn.asougi.charge.AppTest\" name=\"testApp\" time=\"0.003\"/>\r\n</testsuite>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/surefire-reports/TEST-cn.asougi.charge.AppTest.xml b/target/surefire-reports/TEST-cn.asougi.charge.AppTest.xml
+--- a/target/surefire-reports/TEST-cn.asougi.charge.AppTest.xml	
++++ b/target/surefire-reports/TEST-cn.asougi.charge.AppTest.xml	
+@@ -1,11 +1,12 @@
+ <?xml version="1.0" encoding="UTF-8" ?>
+-<testsuite tests="1" failures="0" name="cn.asougi.charge.AppTest" time="0.003" errors="0" skipped="0">
++<testsuite tests="1" failures="0" name="cn.asougi.charge.AppTest" time="0.002" errors="0" skipped="0">
+   <properties>
++    <property name="idea.version" value="2021.2.1"/>
+     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
+-    <property name="java.vm.version" value="25.131-b11"/>
++    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_281\jre\bin"/>
++    <property name="java.vm.version" value="25.281-b09"/>
+     <property name="java.vm.vendor" value="Oracle Corporation"/>
+-    <property name="maven.multiModuleProjectDirectory" value="F:\projects\KimGuild"/>
++    <property name="maven.multiModuleProjectDirectory" value="D:\Java\KimGuild"/>
+     <property name="java.vendor.url" value="http://java.oracle.com/"/>
+     <property name="path.separator" value=";"/>
+     <property name="guice.disable.misplaced.annotation.check" value="true"/>
+@@ -16,54 +17,52 @@
+     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+     <property name="sun.os.patch.level" value=""/>
+     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+-    <property name="user.dir" value="F:\projects\KimGuild"/>
+-    <property name="java.runtime.version" value="1.8.0_131-b11"/>
++    <property name="user.dir" value="D:\Java\KimGuild"/>
++    <property name="java.runtime.version" value="1.8.0_281-b09"/>
+     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\endorsed"/>
++    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_281\jre\lib\endorsed"/>
+     <property name="os.arch" value="amd64"/>
+-    <property name="java.io.tmpdir" value="C:\Users\asougi85\AppData\Local\Temp\"/>
++    <property name="java.io.tmpdir" value="C:\Users\carl0\AppData\Local\Temp\"/>
+     <property name="line.separator" value="
+ "/>
+     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+     <property name="user.variant" value=""/>
+     <property name="os.name" value="Windows 10"/>
+-    <property name="classworlds.conf" value="F:\maven\apache-maven-3.6.3\bin\..\bin\m2.conf"/>
++    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven-event-listener.jar"/>
++    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven3\bin\m2.conf"/>
+     <property name="sun.jnu.encoding" value="GBK"/>
+-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\VanDyke Software\Clients\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jre1.8.0_281;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;F:\maven\apache-maven-3.6.3\bin;C:\Program Files\PuTTY\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;F:\maven\apache-maven-3.6.3\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;F:\Users\Asougi85\Desktop\tools\xmanager7pjb_jb51\Xmanager 7\;F:\Users\Asougi85\Desktop\tools\xmanager7pjb_jb51\Xshell 7\;F:\Users\Asougi85\Desktop\tools\xmanager7pjb_jb51\Xftp 7\;F:\Users\Asougi85\Desktop\tools\xmanager7pjb_jb51\Xlpd 7\;F:\Program Files (x86)\CADSeePlus;C:\Program Files\Git\cmd;C:\Users\asougi85\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\asougi85\AppData\Local\Programs\Python\Python39;E:\Program Files (x86)\GNU Tools ARM Embedded\6 2017-q1-update\bin;C:\Program Files\Bandizip\;C:\Gradle\gradle-5.6.2\bin;F:\Users\asougi85\AppData\Local\Programs\Fiddler;C:\Users\asougi85\AppData\Roaming\npm;F:\Users\Asougi85\Desktop\tools\adb-platform-tools;C:\Program Files\Java\jdk-16.0.2\bin;F:\Users\asougi85\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\asougi85\AppData\Local\GitHubDesktop\bin;."/>
+-    <property name="maven.conf" value="F:\maven\apache-maven-3.6.3\bin\../conf"/>
++    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_281\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NetSarang\Xftp 7\;C:\Program Files\Git\cmd;C:\Users\carl0\AppData\Local\Microsoft\WindowsApps;C:\Users\carl0\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jre1.8.0_281\bin;C:\Program Files (x86)\NetSarang\Xshell 7\;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\mysql-5.7.27-winx64\bin;C:\Program Files\Java\jdk1.8.0_281\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\bin;C:\Users\carl0\AppData\Local\GitHubDesktop\bin;."/>
++    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven3/conf"/>
+     <property name="java.specification.name" value="Java Platform API Specification"/>
+     <property name="java.class.version" value="52.0"/>
+     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+     <property name="os.version" value="10.0"/>
+-    <property name="library.jansi.path" value="F:\maven\apache-maven-3.6.3\bin\..\lib\jansi-native"/>
+-    <property name="user.home" value="C:\Users\asougi85"/>
++    <property name="user.home" value="C:\Users\carl0"/>
+     <property name="user.timezone" value="Asia/Shanghai"/>
+     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+     <property name="java.specification.version" value="1.8"/>
+-    <property name="file.encoding" value="GBK"/>
+-    <property name="user.name" value="asougi85"/>
+-    <property name="java.class.path" value="F:\maven\apache-maven-3.6.3\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
++    <property name="file.encoding" value="UTF-8"/>
++    <property name="user.name" value="carl0"/>
++    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven3\boot\plexus-classworlds.license;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\lib\idea_rt.jar"/>
+     <property name="java.vm.specification.version" value="1.8"/>
+     <property name="sun.arch.data.model" value="64"/>
+-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
+-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
++    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_281\jre"/>
++    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.1 install"/>
+     <property name="java.specification.vendor" value="Oracle Corporation"/>
+     <property name="user.language" value="zh"/>
+     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+     <property name="java.vm.info" value="mixed mode"/>
+-    <property name="java.version" value="1.8.0_131"/>
+-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_131\jre\classes"/>
+-    <property name="sun.stderr.encoding" value="ms936"/>
++    <property name="java.version" value="1.8.0_281"/>
++    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_281\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
++    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_281\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_281\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_281\jre\classes"/>
+     <property name="java.vendor" value="Oracle Corporation"/>
+-    <property name="maven.home" value="F:\maven\apache-maven-3.6.3\bin\.."/>
++    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.3\plugins\maven\lib\maven3"/>
+     <property name="file.separator" value="\"/>
+     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+     <property name="sun.cpu.endian" value="little"/>
+     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+-    <property name="sun.stdout.encoding" value="ms936"/>
+     <property name="sun.desktop" value="windows"/>
+     <property name="sun.cpu.isalist" value="amd64"/>
+   </properties>
+-  <testcase classname="cn.asougi.charge.AppTest" name="testApp" time="0.003"/>
++  <testcase classname="cn.asougi.charge.AppTest" name="testApp" time="0.002"/>
+ </testsuite>
+\ No newline at end of file
+Index: src/main/java/cn/asougi/guild/gui/menu/guildCreateGui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/guildCreateGui.java b/src/main/java/cn/asougi/guild/gui/menu/guildCreateGui.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/guildCreateGui.java	
+@@ -0,0 +1,4 @@
++package cn.asougi.guild.gui.menu;
++
++public class guildCreateGui {
++}
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/jarRepositories.xml	
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/runConfigurations.xml	
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/cn/asougi/guild/gui/menu/mainGui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/cn/asougi/guild/gui/menu/mainGui.java b/src/main/java/cn/asougi/guild/gui/menu/mainGui.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/cn/asougi/guild/gui/menu/mainGui.java	
+@@ -0,0 +1,33 @@
++package cn.asougi.guild.gui.menu;
++
++import cn.asougi.guild.api.ItemFacAPI;
++import cn.asougi.guild.gui.Button;
++import cn.asougi.guild.gui.InventoryGUI;
++import org.bukkit.Material;
++import org.bukkit.entity.Player;
++import org.bukkit.inventory.ItemStack;
++
++public class mainGui extends InventoryGUI {
++    public mainGui(Player player) {//为指定玩家创建箱子页面
++
++        super("样板GUI页面", player, 4);//row:行数为4
++
++//        创建一个ItemStack
++        ItemStack item1 = ItemFacAPI.getItemStack(Material.APPLE,"一个苹果按钮","§r点击后可以触发一个按钮事件","触发后会判断玩家点击的左右键");
++
++        Button button1 = new Button(item1, type -> {
++            if(type.isShiftClick()){
++                player.sendMessage("你按下了SHIFT");
++            }
++            if(type.isLeftClick()){
++                player.sendMessage("你使用了左键");
++            }
++            if(type.isRightClick()){
++                player.sendMessage("你使用了右键");
++            }
++        });
++
++//        在第一格的位置显示苹果按钮
++        this.setButton(0, button1);
++    }
++}

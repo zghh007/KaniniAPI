@@ -1,0 +1,1 @@
+mvn clean package && copy .\target\KaniniAPI-1.0.jar F:\MinecraftServer\1.8spigot\plugins /y
