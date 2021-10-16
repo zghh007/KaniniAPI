@@ -3,11 +3,13 @@ F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\InventoryGUI.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\App.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\scoreboard\message\FixedMessage.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\listener\ButtonClickListener.java
+F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\SlotClick.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\SampleGUI.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\Button.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\title\TitleAPI.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\scoreboard\board\BaseInfoBoard.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\scoreboard\board\TestInfoBoard.java
+F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\gui\Slot.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\scoreboard\ScoreBoardAPI.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\scoreboard\board\ImplKaniniBoard.java
 F:\projects\KaniniAPI\src\main\java\cn\asougi\kaniniAPI\inventory\SkullAPI.java

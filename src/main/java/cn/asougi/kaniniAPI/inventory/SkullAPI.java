@@ -8,8 +8,10 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -49,6 +51,8 @@ public class SkullAPI {
    }
 
    public static ItemStack getPlayerSkull(OfflinePlayer p, String name, String... lores){
+      Player pl  = null;
+//      pl.getWorld().re
       ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
       SkullMeta meta = (SkullMeta)is.getItemMeta();
       meta.setDisplayName(name);

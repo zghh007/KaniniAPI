@@ -12,10 +12,10 @@ public class InventoryGUI {
    int size = 9;
    String name = "箱子界面";
    private Button[] buttons = new Button[54];
+   private Slot[] slots = new Slot[54];
    private Player owner;
    private Inventory inv;
    private static final HashMap<Inventory, InventoryGUI> guiMap = Maps.newHashMap();
-
    public InventoryGUI(String name, Player player, int row) {
       this.name = name;
       this.size = row * 9;
@@ -26,10 +26,20 @@ public class InventoryGUI {
 
    public void setButton(int index, Button b) {
       this.buttons[index] = b;
+      this.slots[index] = null;
    }
 
    public Button getButton(int index) {
       return this.buttons[index];
+   }
+
+   public void setSlot(int index, Slot b) {
+      this.slots[index] = b;
+      this.buttons[index] = null;
+   }
+
+   public Slot getSlot(int index) {
+      return this.slots[index];
    }
 
    public void openInventory() {
@@ -43,6 +53,12 @@ public class InventoryGUI {
          Button b = this.buttons[i];
          if (b != null) {
             this.inv.setItem(i, b.getItemStack());
+         }
+      }
+      for(int i = 0; i < this.slots.length; ++i) {
+         Slot s = this.slots[i];
+         if (s != null) {
+            this.inv.setItem(i, s.getItemStack());
          }
       }
    }

@@ -9,7 +9,9 @@ cn\asougi\kaniniAPI\scoreboard\message\FixedMessage.class
 cn\asougi\kaniniAPI\title\TitleAPI.class
 cn\asougi\kaniniAPI\gui\listener\ButtonClickListener.class
 cn\asougi\kaniniAPI\gui\ButtonClick.class
+cn\asougi\kaniniAPI\gui\SlotClick.class
 cn\asougi\kaniniAPI\scoreboard\board\BaseInfoBoard.class
 cn\asougi\kaniniAPI\inventory\SkullAPI.class
 cn\asougi\kaniniAPI\gui\InventoryGUI.class
+cn\asougi\kaniniAPI\gui\Slot.class
 cn\asougi\kaniniAPI\inventory\ItemFactoryAPI.class

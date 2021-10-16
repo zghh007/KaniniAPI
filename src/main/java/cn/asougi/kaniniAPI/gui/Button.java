@@ -3,7 +3,7 @@ package cn.asougi.kaniniAPI.gui;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class Button extends ItemStack {
+public class Button {
    private ItemStack icon;
    private ButtonClick buttonClick;
 

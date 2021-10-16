@@ -1,6 +1,7 @@
 package cn.asougi.kaniniAPI;
 
 import cn.asougi.kaniniAPI.gui.InventoryGUI;
+import cn.asougi.kaniniAPI.gui.SampleGUI;
 import cn.asougi.kaniniAPI.gui.listener.ButtonClickListener;
 import cn.asougi.kaniniAPI.scoreboard.ScoreBoardAPI;
 import cn.asougi.kaniniAPI.scoreboard.board.TestInfoBoard;
@@ -36,7 +37,9 @@ public class App extends JavaPlugin implements Listener {
 
    @EventHandler
    public void onPlayerChat(PlayerChatEvent evt){
-      TestInfoBoard test = new TestInfoBoard(evt.getPlayer());
-      getScoreBoardAPI().register(evt.getPlayer(),test);
+//      TestInfoBoard test = new TestInfoBoard(evt.getPlayer());
+//      getScoreBoardAPI().register(evt.getPlayer(),test);
+      SampleGUI gui = new SampleGUI(evt.getPlayer());
+      gui.openInventory();
    }
 }
