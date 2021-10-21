@@ -5,6 +5,7 @@ import cn.asougi.kaniniAPI.inventory.ItemFactoryAPI;
 import cn.asougi.kaniniAPI.inventory.SkullAPI;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class SampleGUI extends InventoryGUI{
@@ -19,7 +20,8 @@ public class SampleGUI extends InventoryGUI{
 //        ItemStack item1 = ItemFactoryAPI.getItemStackWithDurability(Material.WOOL,(short)3,"一个苹果按钮","§r点击后可以触发一个按钮事件","触发后会判断玩家点击的左右键");
 
         for(int i = 0 ; i < 27 ; i++){
-            ItemStack iss = SkullAPI.getSkullItem("http://textures.minecraft.net/texture/ed885f2393a3c11a1c6a53182a2a00f9dddc5312e71b8fd192e815f9ca984020",i+"","fork you");
+//            ItemStack iss = SkullAPI.getSkullItem("http://textures.minecraft.net/texture/ed885f2393a3c11a1c6a53182a2a00f9dddc5312e71b8fd192e815f9ca984020",i+"","fork you");
+            ItemStack iss = ItemFactoryAPI.getItemStack(Material.APPLE);
             setButton(i,new Button(iss,(type)->{System.out.println("hello world");}));
         }
 
@@ -28,6 +30,10 @@ public class SampleGUI extends InventoryGUI{
             App.getInstance().getConfig().set("test",after);
             App.getInstance().saveConfig();
         }));
+    }
 
+    @Override
+    public void onInventoryClose(Inventory inv) {
+        System.out.println("箱子页面关闭了");
     }
 }

@@ -63,6 +63,9 @@ public class InventoryGUI {
       }
    }
 
+   public void onInventoryClose(Inventory inv){
+   }
+
    public static void refreshGuiSet() {
       Set<Inventory> keys = Sets.newHashSet();
       keys.addAll(guiMap.keySet());

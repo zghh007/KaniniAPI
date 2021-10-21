@@ -15,6 +15,14 @@ import org.bukkit.inventory.ItemStack;
 public class ButtonClickListener implements Listener {
 
    @EventHandler
+   public void onInventoryClose(InventoryCloseEvent evt){
+      Inventory inv = evt.getInventory();
+      if(InventoryGUI.guiContains(inv)){
+         InventoryGUI.getGUI(inv).onInventoryClose(inv);
+      }
+   }
+
+   @EventHandler
    public void onPlayerDragInventory(InventoryDragEvent evt){
       InventoryView v = evt.getView();
       if(InventoryGUI.guiContains(v.getBottomInventory())||InventoryGUI.guiContains(v.getTopInventory())){
